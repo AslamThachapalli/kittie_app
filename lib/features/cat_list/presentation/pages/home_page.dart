@@ -33,12 +33,14 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Column(
         children: [
+          // AppBar
           Container(
             margin: const EdgeInsets.only(top: 40),
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                //AppBar Title
                 Row(
                   children: [
                     const BigText(text: 'Breed'),
@@ -56,6 +58,7 @@ class _HomePageState extends State<HomePage> {
                     Text(getKeyFromValue(selectedBreed)),
                   ],
                 ),
+                // Filter Icon
                 PopupMenuButton(
                     elevation: 4,
                     shape: RoundedRectangleBorder(
@@ -95,6 +98,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          // Body
           Expanded(
             child: BlocBuilder<CatListBloc, CatListState>(
               builder: (context, state) {

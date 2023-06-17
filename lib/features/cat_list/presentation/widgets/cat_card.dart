@@ -26,6 +26,7 @@ class CatCard extends StatelessWidget {
         height: 120,
         child: Row(
           children: [
+            // Cat Image
             Container(
               width: 130,
               height: 120,
@@ -48,6 +49,8 @@ class CatCard extends StatelessWidget {
                 ),
               ),
             ),
+
+            // Cat Details
             Expanded(
               child: Container(
                 height: 100,
