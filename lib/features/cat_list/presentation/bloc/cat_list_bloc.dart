@@ -65,7 +65,7 @@ class CatListBloc extends Bloc<CatListEvent, CatListState> {
           CatsFetched(
             cats: updatedList,
             length: updatedList.length,
-            hasReachedTheEnd: false,
+            hasReachedTheEnd: (updatedList.length % 15) != 0 ? true : false,
           ),
         );
       },

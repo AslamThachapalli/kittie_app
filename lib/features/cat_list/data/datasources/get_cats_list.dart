@@ -15,7 +15,7 @@ class GetCatsList {
   int currentPage = 0;
 
   static const int fetchLimit = 15;
-  static const int maxPageNumber = 10;
+  static const int maxPageNumber = 3;
 
   Future<List<CatsDto>> getCatsByBreed(String breed) async {
     if (currentPage >= maxPageNumber) {
