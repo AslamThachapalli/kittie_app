@@ -1,16 +1,20 @@
-# cat_brochure_app
+# kittie_app
 
 An app that showcase all breeds of cats.
 
-## Getting Started
+## Building From Source
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clone the app
+2. Excecute 
+```
+flutter pub get
+```
+3. For code generation, excecute 
+```
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+4. For adding your api_key, create the file `lib/core/constants/api_key.dart` and add `const String apiKey = <Your Api Key>`
+5. Now run the app
+```
+flutter run
+```
