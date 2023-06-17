@@ -102,37 +102,29 @@ class _HomePageState extends State<HomePage> {
                   initial: (_) => _buildProgressIndicator(),
                   loadInProgress: (_) => _buildProgressIndicator(),
                   catsFetched: (state) {
-                    return NotificationListener<ScrollNotification>(
-                      onNotification: (not) =>
-                          _handleScrollNotification(not, selectedBreed),
-                      child: ListView.builder(
-                        physics: const BouncingScrollPhysics(),
-                        controller: _scrollController,
-                        itemCount: state.cats.length + 1,
-                        itemBuilder: (context, index) {
-                          if (index >= state.cats.length) {
-                            if (state.hasReachedTheEnd) {
-                              return const Center(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "No More Cats Available",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontStyle: FontStyle.italic,
-                                    ),
-                                  ),
+                    return ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      controller: _scrollController,
+                      itemCount: state.cats.length + 1,
+                      itemBuilder: (context, index) {
+                        if (index >= state.cats.length) {
+                          return const Center(
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                "No More Cats Available",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FontStyle.italic,
                                 ),
-                              );
-                            } else {
-                              return _buildProgressIndicator();
-                            }
-                          } else {
-                            return CatCard(cat: state.cats[index]);
-                          }
-                        },
-                      ),
+                              ),
+                            ),
+                          );
+                        } else {
+                          return CatCard(cat: state.cats[index]);
+                        }
+                      },
                     );
                   },
                   // An Error Screen Can be shown here.
@@ -146,15 +138,6 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
-  }
-
-  bool _handleScrollNotification(
-      ScrollNotification notification, String breed) {
-    if (notification is ScrollEndNotification &&
-        _scrollController.position.extentAfter == 0) {
-      BlocProvider.of<CatListBloc>(context).add(FetchNextPage(breed: breed));
-    }
-    return false;
   }
 
   Widget _buildProgressIndicator() {

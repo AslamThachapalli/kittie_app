@@ -10,6 +10,7 @@ Map<String, String> breedFilters = {
   "Bengal": "beng",
   "British Shorthair": "bsho",
   "Cheetoh": "chee",
+  "Ocicat": "ocic",
 };
 
 String getKeyFromValue(String val) =>

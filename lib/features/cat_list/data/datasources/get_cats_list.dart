@@ -12,21 +12,11 @@ class GetCatsList {
   final http.Client _client;
   GetCatsList(this._client);
 
-  int currentPage = 0;
-
-  static const int fetchLimit = 15;
-  static const int maxPageNumber = 3;
+  static const int fetchLimit = 30;
 
   Future<List<CatsDto>> getCatsByBreed(String breed) async {
-    if (currentPage >= maxPageNumber) {
-      throw NoMoreCatsException();
-    }
-
-    currentPage++;
-
     final response = await _client.get(
-      Uri.parse(
-          "${baseUrl}images/search?breed_ids=$breed&limit=$fetchLimit&page=$currentPage"),
+      Uri.parse("${baseUrl}images/search?breed_ids=$breed&limit=$fetchLimit"),
       headers: {
         'x-api-key': apiKey,
       },
@@ -42,6 +32,4 @@ class GetCatsList {
       throw ServerException();
     }
   }
-
-  void resetCurrentPage() => currentPage = 0;
 }

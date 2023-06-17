@@ -7,7 +7,6 @@ class CatListState with _$CatListState {
   const factory CatListState.catsFetched({
     required List<Cat> cats,
     required int length,
-    required bool hasReachedTheEnd,
   }) = CatsFetched;
   const factory CatListState.loadFailure({
     required String message,

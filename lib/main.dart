@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 
     return BlocProvider(
       create: (context) =>
-          di<CatListBloc>()..add(const FetchNextPage(breed: defaultBreed)),
+          di<CatListBloc>()..add(const FetchAnotherBreed(breed: defaultBreed)),
       child: MaterialApp(
         title: 'Cat Brochure App',
         debugShowCheckedModeBanner: false,

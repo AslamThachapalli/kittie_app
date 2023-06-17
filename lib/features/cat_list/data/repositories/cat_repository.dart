@@ -22,13 +22,8 @@ class CatRepository implements ICatRepository {
         cats.add(res.toDomain());
       }
       return right(cats);
-    } on NoMoreCatsException catch (_) {
-      return left(const NoMoreCatFailure());
     } on ServerException catch (_) {
       return left(const ServerFailure());
     }
   }
-
-  @override
-  void resetPageNumber() => _getCatsList.resetCurrentPage();
 }
